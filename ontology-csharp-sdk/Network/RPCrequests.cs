@@ -21,7 +21,15 @@ namespace Network
         {
             WebResponse RPCResponse = null;
             string jsonRequest = Helpers.jsonRequestBuilder(method, parameters);
-            HttpWebRequest ontRPCRequest = (HttpWebRequest)WebRequest.Create("http://ont-privnet:20336");
+
+            string TEST_NET       = "139.219.111.50";
+            string PRIV_NET       = "192.168.99.100";
+            string FAKE_NET       = "111.111.111.111";
+            string HTTP_REST_PORT = "20334";
+            string HTTP_WS_PORT   = "20335";
+            string HTTP_JSON_PORT = "20336";
+
+            HttpWebRequest ontRPCRequest = (HttpWebRequest)WebRequest.Create("http://" + TEST_NET + ":" + HTTP_JSON_PORT);
 
             ontRPCRequest.ContentType = "application/json-rpc";
             ontRPCRequest.Method = "POST";
